@@ -6,6 +6,7 @@ def test_ingredient():
     ingredientOne = Ingredient('manteiga')
 
     assert ingredientOne.name == 'manteiga'
+    assert ingredientOne.name != 'farinha'
 
     assert ingredientOne.restrictions == {
         Restriction.LACTOSE,
