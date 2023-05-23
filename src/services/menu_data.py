@@ -15,10 +15,9 @@ class MenuData:
         ):
             if dish not in new_dishes.keys():
                 new_dishes[dish] = Dish(dish, price)
+                self.dishes.add(new_dishes[dish])
 
-            else:
-                new_dishes[dish].add_ingredient_dependency(
-                    Ingredient(ingredient),
-                    recipe_amount
-                )
-        # self.dishes.add(new_dishes.values())
+            new_dishes[dish].add_ingredient_dependency(
+                Ingredient(ingredient),
+                recipe_amount
+            )

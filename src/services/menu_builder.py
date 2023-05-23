@@ -30,7 +30,6 @@ class MenuBuilder:
         new_data = list()
 
         for data in self.menu_data.dishes:
-            print(f"Data: {data}")
             if restriction not in data.get_restrictions():
                 new_info = {
                     "dish_name": data.name,
