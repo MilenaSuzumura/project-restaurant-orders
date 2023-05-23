@@ -4,7 +4,10 @@ from models.dish import Dish, Ingredient
 
 # Req 3
 class MenuData:
-    def __create__(self):
+    def __init__(self, source_path: str) -> None:
+        self._data = pd.read_csv(source_path)
+        self.dishes = set()
+
         new_dishes = {}
 
         for dish, price, ingredient, recipe_amount in self._data.itertuples(
@@ -18,8 +21,4 @@ class MenuData:
                     Ingredient(ingredient),
                     recipe_amount
                 )
-        return (new_dishes.values())
-
-    def __init__(self, source_path: str) -> None:
-        self._data = pd.read_csv(source_path)
-        self.dishes = self.__create__()
+        # self.dishes.add(new_dishes.values())

@@ -27,15 +27,16 @@ class MenuBuilder:
     # Req 4
     # Info: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
     def get_main_menu(self, restriction=None) -> pd.DataFrame:
-        new_data = []
+        new_data = list()
 
         for data in self.menu_data.dishes:
+            print(f"Data: {data}")
             if restriction not in data.get_restrictions():
                 new_info = {
-                    'dish_name': data.name,
-                    'ingredients': data.get_ingredients(),
-                    'price': data.price,
-                    'restrictions': data.get_restrictions(),
+                    "dish_name": data.name,
+                    "ingredients": data.get_ingredients(),
+                    "price": data.price,
+                    "restrictions": data.get_restrictions(),
                 }
 
                 new_data.append(new_info)
